@@ -1,0 +1,7 @@
+{
+    "common": {
+        "welcome": "Bienvenue",
+        "login": "Connexion",
+        "logout": "Déconnexion"
+    }
+}
