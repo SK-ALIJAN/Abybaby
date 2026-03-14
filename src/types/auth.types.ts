@@ -3,8 +3,19 @@ export interface User {
     name: string;
     email: string;
     mobile: string;
-    company_name?: string;
-    profile_image?: string;
+    company_name?: string | null;
+    profile_image?: string | null;
+    profile_img?: string | null;
+    photo?: string | null;
+    address?: string | null;
+    city_name?: string | null;
+    state_name?: string | null;
+    district_name?: string | null;
+    zipcode?: string | null;
+    user_post_count?: number;
+    locality_name?: string | null;
+    area?: string | null;
+    whatsapp_notification?: number;
 }
 
 export interface AuthResponse {

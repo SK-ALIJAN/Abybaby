@@ -46,7 +46,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading, initia
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Full Name</label>
-                    <input type="text" {...register("name")} className="mt-1 block w-full border rounded-md p-2" />
+                    <input type="text" {...register("name")} className="mt-1 block w-full border rounded-md p-2 focus:ring-krishi-primary focus:border-krishi-primary outline-none" />
                     {errors.name && <p className="text-red-500 text-xs">{errors.name.message as string}</p>}
                 </div>
 
@@ -58,37 +58,37 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading, initia
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" {...register("email")} className="mt-1 block w-full border rounded-md p-2" />
+                    <input type="email" {...register("email")} className="mt-1 block w-full border rounded-md p-2 focus:ring-krishi-primary focus:border-krishi-primary outline-none" />
                     {errors.email && <p className="text-red-500 text-xs">{errors.email.message as string}</p>}
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Company Name</label>
-                    <input type="text" {...register("company_name")} className="mt-1 block w-full border rounded-md p-2" />
+                    <input type="text" {...register("company_name")} className="mt-1 block w-full border rounded-md p-2 focus:ring-krishi-primary focus:border-krishi-primary outline-none" />
                     {errors.company_name && <p className="text-red-500 text-xs">{errors.company_name.message as string}</p>}
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">GST Number</label>
-                    <input type="text" {...register("gst_no")} className="mt-1 block w-full border rounded-md p-2" placeholder="22ABCDE1234F1Z5" />
+                    <input type="text" {...register("gst_no")} className="mt-1 block w-full border rounded-md p-2 focus:ring-krishi-primary focus:border-krishi-primary outline-none" placeholder="22ABCDE1234F1Z5" />
                     {errors.gst_no && <p className="text-red-500 text-xs">{errors.gst_no.message as string}</p>}
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">PAN Number</label>
-                    <input type="text" {...register("pan_no")} className="mt-1 block w-full border rounded-md p-2" placeholder="ABCDE1234F" />
+                    <input type="text" {...register("pan_no")} className="mt-1 block w-full border rounded-md p-2 focus:ring-krishi-primary focus:border-krishi-primary outline-none" placeholder="ABCDE1234F" />
                     {errors.pan_no && <p className="text-red-500 text-xs">{errors.pan_no.message as string}</p>}
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">Location ID</label>
-                    <input type="number" {...register("location_id")} className="mt-1 block w-full border rounded-md p-2" />
+                    <input type="number" {...register("location_id")} className="mt-1 block w-full border rounded-md p-2 focus:ring-krishi-primary focus:border-krishi-primary outline-none" />
                     {errors.location_id && <p className="text-red-500 text-xs">{errors.location_id.message as string}</p>}
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700">User Type ID</label>
-                    <input type="number" {...register("user_type_id")} className="mt-1 block w-full border rounded-md p-2" />
+                    <input type="number" {...register("user_type_id")} className="mt-1 block w-full border rounded-md p-2 focus:ring-krishi-primary focus:border-krishi-primary outline-none" />
                     {errors.user_type_id && <p className="text-red-500 text-xs">{errors.user_type_id.message as string}</p>}
                 </div>
 
@@ -110,7 +110,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isLoading, initia
             <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+                className="w-full mt-6 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-krishi-primary hover:bg-krishi-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-krishi-primary disabled:opacity-50 transition-all"
             >
                 {isLoading ? "Registering..." : "Register"}
             </button>

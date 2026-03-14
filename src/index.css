@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+  --color-krishi-primary: #008e48;
+  --color-krishi-dark: #004b2c;
+  --color-krishi-accent: #ffb800;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900;
+  }
+}
