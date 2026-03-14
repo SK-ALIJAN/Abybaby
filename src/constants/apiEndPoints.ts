@@ -1,6 +1,6 @@
 export const API_ENDPOINTS = {
-    LOGIN: '/auth/login',
-    REGISTER: '/auth/register',
-    LOGOUT: '/auth/logout',
-    PROFILE: '/auth/profile',
+    OTP_SEND: '/otp-send',
+    LOGIN: '/login',
+    REGISTER: '/register',
+    PROFILE: '/post-details',
 };

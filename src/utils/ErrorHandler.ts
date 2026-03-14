@@ -1,6 +1,6 @@
 import { message } from "antd";
 import { AxiosError } from "axios";
-import { globalErrorService } from "../services/globalErrorService";
+import { globalErrorService } from "../services/core/globalErrorService";
 
 
 interface ApiErrorResponse {

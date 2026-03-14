@@ -1,34 +1,41 @@
 import { API_ENDPOINTS } from "../../constants/apiEndPoints";
-import type { LoginPayload, RegisterPayload, User } from "../../types/auth.types";
+import type { LoginPayload, RegisterPayload, AuthResponse, OtpSendResponse } from "../../types/auth.types";
 import { apiService } from "../api/axiosService";
 
-
-interface AuthResponse {
-    user: User;
-    accessToken: string;
-    refreshToken: string;
-}
-
 export const authService = {
-    login: async (payload: LoginPayload): Promise<AuthResponse> => {
-        return await apiService.postCall<AuthResponse, LoginPayload>(
-            API_ENDPOINTS.LOGIN,
-            payload,
+    sendOtp: async (mobile: string): Promise<OtpSendResponse> => {
+        return await apiService.postCall<OtpSendResponse, { mobile: string }>(
+            API_ENDPOINTS.OTP_SEND,
+            { mobile }
         );
     },
 
-    register: async (payload: RegisterPayload): Promise<AuthResponse> => {
-        return await apiService.postCall<AuthResponse, RegisterPayload>(
-            API_ENDPOINTS.REGISTER,
+    login: async (payload: LoginPayload): Promise<AuthResponse> => {
+        return await apiService.postCall<AuthResponse, LoginPayload>(
+            API_ENDPOINTS.LOGIN,
             payload
         );
     },
 
-    getProfile: async (): Promise<User> => {
-        return await apiService.getCall<User>(API_ENDPOINTS.PROFILE);
+    register: async (payload: RegisterPayload): Promise<AuthResponse> => {
+        const formData = new FormData();
+        Object.entries(payload).forEach(([key, value]) => {
+            if (value !== undefined) {
+                // Check if value is a File for the profile_image
+                formData.append(key, value instanceof File ? value : String(value));
+            }
+        });
+
+        return await apiService.postMultipartCall<AuthResponse, FormData>(
+            API_ENDPOINTS.REGISTER,
+            formData
+        );
     },
 
-    logout: async (): Promise<void> => {
-        await apiService.postCall<void, {}>(API_ENDPOINTS.LOGOUT, {});
+    getProfile: async (userId: string | number): Promise<any> => {
+        return await apiService.postCall<any, { user_id: string | number }>(
+            API_ENDPOINTS.PROFILE,
+            { user_id: userId }
+        );
     },
 };

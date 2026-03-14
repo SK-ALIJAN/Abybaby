@@ -1,25 +1,52 @@
 export interface User {
-    id: string;
+    id: number | string;
     name: string;
     email: string;
-    role: 'user' | 'admin';
+    mobile: string;
+    company_name?: string;
+    profile_image?: string;
 }
 
-export interface AuthState {
-    user: User | null;
-    accessToken: string | null;
-    isLoading: boolean;
-    isAuthenticated: boolean;
-    error: string | null;
+export interface AuthResponse {
+    result: {
+        status: number;
+        success: number;
+        response: {
+            token: string;
+            user: User;
+            otp?: string;
+        };
+        message: string;
+    };
+}
+
+export interface OtpSendResponse {
+    result: {
+        status: number;
+        success: number;
+        response: {
+            otp: string;
+        };
+        message: string;
+        token?: string;
+    };
 }
 
 export interface LoginPayload {
-    email: string;
-    password: string;
+    mobile: string;
 }
 
 export interface RegisterPayload {
+    user_type_id: number;
     name: string;
+    mobile: string;
     email: string;
-    password: string;
+    company_name: string;
+    firebase_token?: string;
+    installation_id?: string;
+    login_via: "ANDROID" | "IOS";
+    gst_no: string;
+    pan_no: string;
+    location_id: number;
+    profile_image: File;
 }

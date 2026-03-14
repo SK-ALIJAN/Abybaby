@@ -1,10 +1,9 @@
-export default function index() {
+import Profile from "../../components/Profile";
 
+export default function index() {
     return (
-        <div className=" flex items-center justify-center bg-blue-600">
-            <h1 className="text-white text-3xl font-bold">
-                Tailwind Working 🚀
-            </h1>
+        <div className="min-h-screen bg-gray-100 py-6">
+            <Profile />
         </div>
-    )
+    );
 }

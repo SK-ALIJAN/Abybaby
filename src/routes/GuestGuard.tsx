@@ -1,10 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { ROUTES } from './routePaths';
+import { useAuth } from '../context/AuthContext';
 
 const GuestGuard = () => {
-    const isLogin = false; // this should be replace with redux or context api
+    const { isAuthenticated, loading } = useAuth();
 
-    if (isLogin) {
+    if (loading) return <div>Loading...</div>;
+
+    if (isAuthenticated) {
         return <Navigate to={ROUTES.HOME} replace />;
     }
 

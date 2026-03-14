@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import type { ReactNode } from "react";
 import { registerGlobalErrorSetter } from "../services/core/globalErrorService";
 
 
@@ -14,7 +15,7 @@ interface ContextType {
 
 const GlobalErrorContext = createContext<ContextType | null>(null);
 
-export const GlobalErrorProvider = ({ children }: any) => {
+export const GlobalErrorProvider = ({ children }: { children: ReactNode }) => {
     const [error, setError] = useState<GlobalErrorState | null>(null);
 
     // Register setter globally
